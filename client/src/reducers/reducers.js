@@ -18,12 +18,7 @@ function user(state = {}, action) {
   }
 };
 
-function room(room = {
-    id: 0,
-    name: '',
-    desc: '',
-    messages: [],
-}, action) {
+function room(room = {}, action) {
   switch (action.type) {
 
     case 'SET_ROOM':
@@ -50,17 +45,6 @@ function roomList(state = [], action) {
       return state;
   }
 }
-
-// function messages(state = [], action) {
-//   switch (action.type) {
-
-//     case 'RESET_MESSAGES':
-//       return [];
-      
-//     default:
-//       return state;
-//   }
-// }
 
 function code(state = '', action) {
   switch (action.type) {
