@@ -7,19 +7,7 @@ class Chatroom extends React.Component {
 
     this.state = {
       message: '',
-      messages: ['You have entered "hard"'],
-      room: {
-        name: 'hard',
-        desc: 'This is tough yo'
-      },
-      users: [
-        {
-          username: 'Bob'
-        },
-        {
-          username: 'Not Bob'
-        }
-      ]
+      messages: []
     };
     this.handleMessageSend = this.handleMessageSend.bind(this);
     this.handleMessageChange = this.handleMessageChange.bind(this);
@@ -27,10 +15,13 @@ class Chatroom extends React.Component {
   }
 
   handleMessageSend() {
+    const context = this;
+    this.props.updateMessages(this.state.message);
     this.setState({
-      messages: [ ...this.state.messages, this.state.message],
-      message: ''
+      message: '',
+      messages: this.props.room.messages
     });
+    
   }
 
   handleMessageChange(event) {
@@ -46,7 +37,7 @@ class Chatroom extends React.Component {
   }
 
   componentDidMount() {
-    console.log('chatroom props', this.props)
+
   }
 
   render() {
@@ -57,7 +48,7 @@ class Chatroom extends React.Component {
             {this.props.room.name}
           </div>
           <div className="panel-body" style={{maxHeight: 600, minHeight:600}}>
-            {this.props.messages.map((message, index) => 
+            {this.props.room.messages.map((message, index) => 
               <p key={index}>{message}</p>
             )}
           </div>

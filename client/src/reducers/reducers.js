@@ -18,14 +18,28 @@ function user(state = {}, action) {
   }
 };
 
-function room(state = {}, action) {
+function room(room = {
+    id: 0,
+    name: '',
+    desc: '',
+    messages: [],
+}, action) {
   switch (action.type) {
 
     case 'SET_ROOM':
       return action.room;
 
+    case 'UPDATE_MESSAGES':
+      return {
+        ...room,
+        messages: [...room.messages, action.message]
+      };
+
+    case 'RESET_MESSAGES':
+      return {...room, messages: []};
+
     default:
-      return state;
+      return room;
   }
 }
 
@@ -40,16 +54,16 @@ function roomList(state = [], action) {
   }
 }
 
-function messages(state = [], action) {
-  switch (action.type) {
+// function messages(state = [], action) {
+//   switch (action.type) {
 
-    case 'RESET_MESSAGES':
-      return [];
+//     case 'RESET_MESSAGES':
+//       return [];
       
-    default:
-      return state;
-  }
-}
+//     default:
+//       return state;
+//   }
+// }
 
 function code(state = '', action) {
   switch (action.type) {
