@@ -14,12 +14,10 @@ class Chatroom extends React.Component {
   }
 
   handleMessageSend() {
-    const context = this;
     this.props.updateMessages(this.state.message);
     this.setState({
       message: ''
     });
-    
   }
 
   handleMessageChange(event) {
