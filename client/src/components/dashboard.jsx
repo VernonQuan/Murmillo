@@ -9,7 +9,6 @@ const Dashboard = (props) => (
         <RoomListContainer />
       </div>
       <div className="col-md-7">
-        {console.log(props)}
         {props.currentRoom.name ? <ChatroomContainer /> : <div></div>}
       </div>
     </div>
