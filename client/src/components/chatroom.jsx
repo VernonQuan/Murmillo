@@ -7,7 +7,6 @@ class Chatroom extends React.Component {
 
     this.state = {
       message: '',
-      messages: []
     };
     this.handleMessageSend = this.handleMessageSend.bind(this);
     this.handleMessageChange = this.handleMessageChange.bind(this);
@@ -18,8 +17,7 @@ class Chatroom extends React.Component {
     const context = this;
     this.props.updateMessages(this.state.message);
     this.setState({
-      message: '',
-      messages: this.props.room.messages
+      message: ''
     });
     
   }
@@ -31,7 +29,7 @@ class Chatroom extends React.Component {
   }
 
   handleKeyPress(target) {
-    if (target.charCode===13) {
+    if (target.charCode === 13) {
       this.handleMessageSend();
     }
   }
