@@ -35,9 +35,6 @@ function room(room = {
         messages: [...room.messages, action.message]
       };
 
-    case 'RESET_MESSAGES':
-      return {...room, messages: []};
-
     default:
       return room;
   }
