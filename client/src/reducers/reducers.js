@@ -29,7 +29,7 @@ function room(state = {}, action) {
   }
 }
 
-function roomList(state = {}, action) {
+function roomList(state = [], action) {
   switch (action.type) {
 
     case 'SET_ROOMLIST':
